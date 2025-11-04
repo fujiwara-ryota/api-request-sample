@@ -3,11 +3,28 @@
   <component name="CopilotDiffPersistence">
     <option name="pendingDiffs">
       <map>
-        <entry key="$PROJECT_DIR$/package.json">
+        <entry key="$PROJECT_DIR$/.env.example">
           <value>
             <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/package.json" />
-              <option name="updatedContent" value="{&#10;  &quot;name&quot;: &quot;api-request-sample&quot;,&#10;  &quot;version&quot;: &quot;1.0.0&quot;,&#10;  &quot;description&quot;: &quot;OpenAI API request sample&quot;,&#10;  &quot;main&quot;: &quot;index.js&quot;,&#10;  &quot;type&quot;: &quot;module&quot;,&#10;  &quot;scripts&quot;: {&#10;    &quot;start&quot;: &quot;node index.js&quot;,&#10;    &quot;dev&quot;: &quot;node --watch index.js&quot;&#10;  },&#10;  &quot;dependencies&quot;: {&#10;    &quot;openai&quot;: &quot;^4.67.3&quot;,&#10;    &quot;dotenv&quot;: &quot;^16.4.5&quot;&#10;  },&#10;  &quot;keywords&quot;: [&quot;openai&quot;, &quot;api&quot;, &quot;sample&quot;],&#10;  &quot;author&quot;: &quot;&quot;,&#10;  &quot;license&quot;: &quot;MIT&quot;&#10;}" />
+              <option name="filePath" value="$PROJECT_DIR$/.env.example" />
+              <option name="originalContent" value="# OpenAI API Key&#10;# Get your API key from: https://platform.openai.com/api-keys&#10;OPENAI_API_KEY=your-openai-api-key-here&#10;&#10;PROMPT_ID=pmpt_xxxx&#10;" />
+              <option name="updatedContent" value="# OpenAI API Key&#10;# Get your API key from: https://platform.openai.com/api-keys&#10;OPENAI_API_KEY=your-openai-api-key-here&#10;&#10;# OpenAI Prompt ID for responses.create&#10;PROMPT_ID=pmpt_68ef29b2ef6c8195abc3b119a63909760649e17365f76136&#10;&#10;PROMPT_ID=pmpt_xxxx&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/data/product-data.json">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/data/product-data.json" />
+              <option name="updatedContent" value="{&#10;  &quot;product_id&quot;: &quot;prod_001&quot;,&#10;  &quot;name&quot;: &quot;サンプル商品&quot;,&#10;  &quot;price&quot;: 1500,&#10;  &quot;category&quot;: &quot;electronics&quot;,&#10;  &quot;description&quot;: &quot;高品質な電子機器&quot;,&#10;  &quot;reviews&quot;: [&#10;    {&quot;rating&quot;: 5, &quot;comment&quot;: &quot;とても良い商品です&quot;},&#10;    {&quot;rating&quot;: 4, &quot;comment&quot;: &quot;価格に見合った品質&quot;}&#10;  ]&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/data/user-data-1.json">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/data/user-data-1.json" />
+              <option name="updatedContent" value="{&#10;  &quot;user_id&quot;: &quot;user_001&quot;,&#10;  &quot;name&quot;: &quot;田中太郎&quot;,&#10;  &quot;age&quot;: 30,&#10;  &quot;preferences&quot;: {&#10;    &quot;language&quot;: &quot;ja&quot;,&#10;    &quot;theme&quot;: &quot;dark&quot;&#10;  },&#10;  &quot;activity&quot;: {&#10;    &quot;last_login&quot;: &quot;2024-11-04&quot;,&#10;    &quot;actions&quot;: [&quot;search&quot;, &quot;purchase&quot;, &quot;review&quot;]&#10;  }&#10;}" />
             </PendingDiffInfo>
           </value>
         </entry>
