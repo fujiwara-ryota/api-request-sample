@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/package.json">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/package.json" />
+              <option name="updatedContent" value="{&#10;  &quot;name&quot;: &quot;api-request-sample&quot;,&#10;  &quot;version&quot;: &quot;1.0.0&quot;,&#10;  &quot;description&quot;: &quot;OpenAI API request sample&quot;,&#10;  &quot;main&quot;: &quot;index.js&quot;,&#10;  &quot;type&quot;: &quot;module&quot;,&#10;  &quot;scripts&quot;: {&#10;    &quot;start&quot;: &quot;node index.js&quot;,&#10;    &quot;dev&quot;: &quot;node --watch index.js&quot;&#10;  },&#10;  &quot;dependencies&quot;: {&#10;    &quot;openai&quot;: &quot;^4.67.3&quot;,&#10;    &quot;dotenv&quot;: &quot;^16.4.5&quot;&#10;  },&#10;  &quot;keywords&quot;: [&quot;openai&quot;, &quot;api&quot;, &quot;sample&quot;],&#10;  &quot;author&quot;: &quot;&quot;,&#10;  &quot;license&quot;: &quot;MIT&quot;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
