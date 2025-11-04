@@ -12,6 +12,14 @@
             </PendingDiffInfo>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/data/.gitkeep">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/data/.gitkeep" />
+              <option name="updatedContent" value="# このファイルはdataディレクトリをGit管理下に置くためのものです&#10;# ディレクトリ内のJSONファイルは.gitignoreで除外されています&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/data/product-data.json">
           <value>
             <PendingDiffInfo>

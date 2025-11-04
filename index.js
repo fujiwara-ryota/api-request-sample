@@ -45,7 +45,7 @@ async function loadAllData() {
  */
 function parseArgs() {
   const args = process.argv.slice(2);
-  let count = 10; // デフォルト値
+  let count = null; // デフォルトはnull（全件処理）
 
   for (const arg of args) {
     if (arg.startsWith('--count=')) {
@@ -103,11 +103,36 @@ function saveResult(result, count) {
     }
 
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const filename = `result_${count}items_${timestamp}.json`;
-    const filePath = path.join(outputDir, filename);
 
-    fs.writeFileSync(filePath, JSON.stringify(result, null, 2), 'utf8');
-    console.log(`Result saved to: ${filePath}`);
+    // JSONファイルとして保存
+    const jsonFilename = `result_${count}items_${timestamp}.json`;
+    const jsonFilePath = path.join(outputDir, jsonFilename);
+    fs.writeFileSync(jsonFilePath, JSON.stringify(result, null, 2), 'utf8');
+    console.log(`JSON result saved to: ${jsonFilePath}`);
+
+    // output配列からtextを抽出してCSVとして保存
+    if (result.output && Array.isArray(result.output)) {
+      let csvContent = '';
+      result.output.forEach((outputItem) => {
+        if (outputItem.content && Array.isArray(outputItem.content)) {
+          outputItem.content.forEach((contentItem) => {
+            if (contentItem.text) {
+              // コードフェンスを削除
+              let text = contentItem.text.trim();
+              text = text.replace(/^```\n?/, '').replace(/\n?```$/, '');
+              csvContent += text + '\n';
+            }
+          });
+        }
+      });
+
+      if (csvContent) {
+        const csvFilename = `result_${count}items_${timestamp}.csv`;
+        const csvFilePath = path.join(outputDir, csvFilename);
+        fs.writeFileSync(csvFilePath, csvContent.trim(), 'utf8');
+        console.log(`CSV result saved to: ${csvFilePath}`);
+      }
+    }
   } catch (error) {
     console.error('Error saving result:', error);
   }
@@ -135,21 +160,24 @@ async function main() {
 
     // コマンドライン引数を解析
     const { count } = parseArgs();
-    console.log(`Requested count: ${count}`);
+    if (count === null) {
+      console.log('Requested count: All items');
+    } else {
+      console.log(`Requested count: ${count}`);
+    }
 
     // 全データを読み込み
     const allData = await loadAllData();
 
-    // 指定された件数分を取得
-    const dataToProcess = allData.slice(0, count);
-    console.log(dataToProcess);
+    // 指定された件数分を取得（countがnullの場合は全件）
+    const dataToProcess = count === null ? allData : allData.slice(0, count);
 
     if (dataToProcess.length === 0) {
       console.error('No data to process');
       process.exit(1);
     }
 
-    if (dataToProcess.length < count) {
+    if (count !== null && dataToProcess.length < count) {
       console.warn(`Warning: Only ${dataToProcess.length} items available (requested ${count})`);
     }
 
@@ -160,6 +188,26 @@ async function main() {
 
     // 結果を表示
     console.log('\n=== API Response ===');
+
+    // outputからtextを抽出して表示
+    if (result.output && Array.isArray(result.output)) {
+      result.output.forEach((outputItem, index) => {
+        if (outputItem.content && Array.isArray(outputItem.content)) {
+          outputItem.content.forEach((contentItem) => {
+            if (contentItem.text) {
+              console.log(`\n--- Output ${index + 1} ---`);
+              // textを改行で分割して表示
+              const lines = contentItem.text.split('\n');
+              lines.forEach(line => {
+                console.log(line);
+              });
+            }
+          });
+        }
+      });
+    }
+
+    console.log('\n=== Full Response (JSON) ===');
     console.log(JSON.stringify(result, null, 2));
 
     // 結果をファイルに保存
